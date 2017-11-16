@@ -4,7 +4,7 @@ set serverDir=C:\Users\OthmaneSENOUCI\projects\robotStoreServer
 
 rem Build the angular project
 cd %ngProjectDir%
-call call ng build --aot -prod
+call call ng build --aot -prod --env=prod
 
 rem Copy the dist directory to node server
 call xcopy  %ngProjectDir%\dist %serverDir%\dist /e/i/h/Y
