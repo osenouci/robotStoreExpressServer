@@ -1,16 +1,20 @@
-// server.js
-const express = require('express');
-const path    = require('path');
-const app = express();
-// Run the app by serving the static files
-// in the dist directory
-app.use(express.static(__dirname + '/dist'));
-// Start the app by listening on the default
-// Heroku port
+// Import modules
+const express = require('express');			// Import the express web server.
+const path    = require('path');			// Import the path to format the out directory`.
 
-app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, './dist/index.html'));
+// Constant definition
+const angularIndexFile = path.join(__dirname, './dist/index.html');
+const public directory = __dirname + '/dist');
+
+// Server configuration
+const app 	  = express();					// Create a new instance of express.
+
+app.use(express.static();	// Define the directory where the static file reside.
+
+// The default route. Whatever URL we git it, it should always return the Angular app.
+app.get('*', function(req, res) {							
+    res.sendFile(angularIndexFile);		
 });
 
-
-app.listen(process.env.PORT || 80);
+// Start the server.
+app.listen(process.env.PORT || 80);			// Start the app by listening on the default Heroku port
