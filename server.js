@@ -4,12 +4,12 @@ const path    = require('path');			// Import the path to format the out director
 
 // Constant definition
 const angularIndexFile = path.join(__dirname, './dist/index.html');
-const public directory = __dirname + '/dist');
+const directory = (__dirname + '/dist');
 
 // Server configuration
-const app 	  = express();					// Create a new instance of express.
+const app = express();					// Create a new instance of express.
 
-app.use(express.static();	// Define the directory where the static file reside.
+app.use(express.static(directory));	// Define the directory where the static file reside.
 
 // The default route. Whatever URL we git it, it should always return the Angular app.
 app.get('*', function(req, res) {							
