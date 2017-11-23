@@ -8,8 +8,12 @@ It requires that we compile the `Angular 4` project and place its compiled code 
 
 The file structure should look like
 
+```
 +-- dist                 // Directory containing the **Angular 4 app**
 |   +-- index.html            // Application entry point
 |-- +--- *.*                  // Angular app resources resources
 +-- package.json              // NPM config file
 +-- server.js                 // Express server
+```
+
+
