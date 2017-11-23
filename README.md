@@ -17,7 +17,9 @@ The file structure should look like
 ```
 
 # Serving the files to clients
+
 A route that catches all requests of type GET is used to serve the application like so:
+
 ```javascript
 // Code ...
 
@@ -32,6 +34,7 @@ app.get('*', function(req, res) {
 
 // Code ...
 ```
+**Note: We uses Express.static to define the **dir** directory as public**
 
 # Build script (On Windows)
 I have written a simple script that can be used to:
