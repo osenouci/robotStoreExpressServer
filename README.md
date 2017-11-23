@@ -16,4 +16,49 @@ The file structure should look like
 +-- server.js                 // Express server
 ```
 
+# Serving the files to clients
+A route that catches all requests of type GET is used to serve the application like so:
+```javascript
+// Code ...
 
+const angularIndexFile = path.join(__dirname, './dist/index.html');
+const directory = (__dirname + '/dist');
+
+app.use(express.static(directory));	
+
+app.get('*', function(req, res) {							
+    res.sendFile(angularIndexFile);		
+});
+
+// Code ...
+```
+
+# Build script (On Windows)
+I have written a simple script that can be used to:
+- Compile the angular project
+- Copy the ***dist*** to the Express server directory.
+- Commits the modifications to git
+- Pushs the changes to github
+- Pushs the changes to heroku server
+
+```bat
+@echo off
+set ngProjectDir=C:\Users\MY_USER\projects\robotStore
+set serverDir=C:\Users\MY_USER\projects\robotStoreServer
+
+rem Build the angular project
+cd %ngProjectDir%
+call call ng build --aot -prod --env=prod
+
+rem Copy the dist directory to node server
+call xcopy  %ngProjectDir%\dist %serverDir%\dist /e/i/h/Y
+
+rem commit to git
+cd %serverDir%
+call git add .
+call git commit -m "Angular project update @ %DATE% - %TIME%"
+rem upload the server to the heroku cloud
+echo "Uploading to heroku"
+
+call git push heroku master
+```
