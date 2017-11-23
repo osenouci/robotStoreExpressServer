@@ -61,7 +61,10 @@ cd %serverDir%
 call git add .
 call git commit -m "Angular project update @ %DATE% - %TIME%"
 rem upload the server to the heroku cloud
-echo "Uploading to heroku"
 
+echo "Updating github"
+git push origin master
+
+echo "Uploading to heroku"
 call git push heroku master
 ```
