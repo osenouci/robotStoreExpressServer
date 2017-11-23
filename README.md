@@ -1,2 +1,5 @@
-# robotStoreExpressServer
-Express server that is used to serve the Angular project to the web clients
+# About the project
+Express server that is used to serve the Angular (4) project to the web clients.
+
+
+
